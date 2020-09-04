@@ -14,34 +14,28 @@ export class RickmortyCard extends LitElement {
 
   static get properties() {
     return {
-      title: { type: String },
-      image: { type: String},
-      id: {type: Number},
-      name: {type: String},
+      name: { type: String },
+      id: { type: String },
+      imgUrl: { type: String }
     };
   }
 
   constructor() {
     super();
-    this.title = 'Hey there';
-    this.image='';
-    this.name='';
-    this.id = 0;
-
+    this.name = "Michi";
+    this.id = "1";
+    this.imgUrl = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
   }
 
 
   render() {
     return html`
-
-    <paper-card>
-        <img src="${this.image}">
-        <h2>${this.name}</h2>
-        <div class="card-content">
-          <p>Id: ${this.id}</p>
-        </div>
-    </paper-card>
-
+      <div class="card">
+        <img src="${this.imgUrl}" alt="Image"/>
+        <strong><p>Name: ${this.name}</p></strong>
+        <strong><p>ID: ${this.id}</p></strong>
+      </div>
     `;
   }
+
 }
