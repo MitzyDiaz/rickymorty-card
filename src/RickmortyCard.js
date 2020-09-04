@@ -1,4 +1,5 @@
 import { html, css, LitElement } from 'lit-element';
+import '@polymer/paper-card/paper-card.js';
 
 export class RickmortyCard extends LitElement {
   static get styles() {
@@ -30,11 +31,11 @@ export class RickmortyCard extends LitElement {
 
   render() {
     return html`
-      <div class="card">
+     <paper-card>
         <img src="${this.imgUrl}" alt="Image"/>
         <strong><p>Name: ${this.name}</p></strong>
         <strong><p>ID: ${this.id}</p></strong>
-      </div>
+      </paper-card>
     `;
   }
 
