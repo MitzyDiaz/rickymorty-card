@@ -1,5 +1,4 @@
 import { html, css, LitElement } from 'lit-element';
-import '@polymer/paper-card/paper-card.js';
 
 export class RickmortyCard extends LitElement {
   static get styles() {
@@ -16,57 +15,33 @@ export class RickmortyCard extends LitElement {
   static get properties() {
     return {
       title: { type: String },
-      counter: { type: Number },
-      data: { type: Array },
-      characters: { type: Array },
+      image: { type: String},
+      id: {type: Number},
+      name: {type: String},
     };
   }
 
   constructor() {
     super();
     this.title = 'Hey there';
-    this.data = [];
-    this.characters = [];
+    this.image='';
+    this.name='';
+    this.id = 0;
 
   }
 
-
-  firstUpdated(){
-    fetch('https://rickandmortyapi.com/api/character/')
-    .then(r => r.json())
-    .then(r => {
-      this.data = r.results;
-      this.receiveCharacter();
-    });
-  }
-
-
-  receiveCharacter() {
-    this.data.forEach((character, index) => {
-      this.characters.push({
-        name: character.name,
-        id: character.id,
-        image: character.image,
-        loc: character.location.name,
-        gender: character.gender
-      });
-    });
-    console.log(this.characters);
-  }
 
   render() {
     return html`
-        ${this.characters.map(character => html`
-          <paper-card>
-            <img src="${character.image}">
-            <h2>${character.name}</h2>
-            <div class="card-content">
-              <p>Id: ${character.id}</p>
-              <p>Gender: ${character.gender}</p>
-              <p>Location: ${character.loc}</p>
-            </div>
-          </paper-card>
-        `)}
+
+    <paper-card>
+        <img src="${this.image}">
+        <h2>${this.name}</h2>
+        <div class="card-content">
+          <p>Id: ${this.id}</p>
+        </div>
+    </paper-card>
+
     `;
   }
 }
