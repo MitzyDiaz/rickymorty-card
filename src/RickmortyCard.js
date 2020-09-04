@@ -23,9 +23,9 @@ export class RickmortyCard extends LitElement {
 
   constructor() {
     super();
-    this.name = "Michi";
-    this.id = "1";
-    this.imgUrl = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
+    this.name = '';
+    this.id = '';
+    this.imgUrl = '';
   }
 
 
